@@ -56,23 +56,22 @@ void choicy_reloadPreferences(void)
 
 BOOL choicy_shouldDisableTweakInjectionForApplication(NSString *applicationID)
 {
-	BOOL safeMode = NO;
-
 	BOOL overrideExists;
 	BOOL disableTweakInjectionOverrideValue = [[ChoicyOverrideManager sharedManager] disableTweakInjectionOverrideForApplication:applicationID overrideExists:&overrideExists];
 	if (overrideExists) {
 		return disableTweakInjectionOverrideValue;
 	}
 
+	if ([applicationID isEqualToString:kPreferencesBundleID]) 	
+		return NO;
+
 	NSDictionary *settingsForApp = processPreferencesForApplication(preferences, applicationID);
 
 	if (settingsForApp && [settingsForApp isKindOfClass:[NSDictionary class]]) {
-		if (![applicationID isEqualToString:kPreferencesBundleID]) {
-			safeMode = ((NSNumber *)[settingsForApp objectForKey:kChoicyProcessPrefsKeyTweakInjectionDisabled]).boolValue;
-		}
+		return ((NSNumber *)[settingsForApp objectForKey:kChoicyProcessPrefsKeyTweakInjectionDisabled]).boolValue;
 	}
 
-	return safeMode;
+	return YES;
 }
 
 NSDictionary *choicy_applyEnvironmentChanges(NSDictionary *originalEnvironment, NSString *bundleIdentifier)

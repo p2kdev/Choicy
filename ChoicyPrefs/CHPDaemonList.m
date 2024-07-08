@@ -63,7 +63,7 @@
 
 - (void)updateDaemonListIfNeeded
 {
-	HBLogDebugWeak(@"updateDaemonListIfNeeded");
+	NSLog(@"updateDaemonListIfNeeded");
 
 	if (_loaded || _loading) {
 		return;
@@ -113,7 +113,7 @@
 		}
 	}
 
-	HBLogDebugWeak(@"XPC before");
+	NSLog(@"XPC before");
 
 	NSDirectoryEnumerator *systemLibraryFrameworksEnumerator = [[NSFileManager defaultManager] enumeratorAtURL:[NSURL fileURLWithPath:@"/System/Library/Frameworks" isDirectory:YES] includingPropertiesForKeys:nil options:0 errorHandler:^(NSURL *url, NSError *error) {
 		return YES;
@@ -154,7 +154,7 @@
 		}
 	}
 
-	HBLogDebugWeak(@"XPC after");
+	NSLog(@"XPC after");
 
 	NSMutableArray *additionalPotentialDaemons = [NSMutableArray new];
 
@@ -208,7 +208,7 @@
 		return [[a executableName] localizedCaseInsensitiveCompare:[b executableName]];
 	}];
 
-	HBLogDebugWeak(@"updateDaemonListIfNeeded loaded files");
+	NSLog(@"updateDaemonListIfNeeded loaded files");
 
 	CHPTweakList *tweakList = [CHPTweakList sharedInstance];
 
@@ -223,7 +223,7 @@
 	_loading = NO;
 	_loaded = YES;
 
-	HBLogDebugWeak(@"updateDaemonListIfNeeded end");
+	NSLog(@"updateDaemonListIfNeeded end");
 
 	[self sendReloadToObservers];
 }

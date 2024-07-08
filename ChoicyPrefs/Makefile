@@ -8,6 +8,7 @@ ChoicyPrefs_FRAMEWORKS = UIKit
 ChoicyPrefs_PRIVATE_FRAMEWORKS = Preferences MobileCoreServices
 ChoicyPrefs_EXTRA_FRAMEWORKS = AltList
 ChoicyPrefs_CFLAGS = -fobjc-arc -Wno-deprecated-declarations
+ChoicyPrefs_OBJ_FILES = $(THEOS)/vendor/lib/iphone/rootless/libroot.a
 
 include $(THEOS_MAKE_PATH)/bundle.mk
 

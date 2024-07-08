@@ -107,7 +107,7 @@
 			<key>label</key>
 			<string>LAUNCH_WITHOUT_TWEAKS_OPTION</string>
 		</dict>
-		<dict>
+		<!-- <dict>
 			<key>cell</key>
 			<string>PSSwitchCell</string>
 			<key>PostNotification</key>
@@ -118,7 +118,7 @@
 			<string>launchWithTweaksOptionEnabled</string>
 			<key>label</key>
 			<string>LAUNCH_WITH_TWEAKS_OPTION</string>
-		</dict>
+		</dict> -->
 		<dict>
 			<key>cell</key>
 			<string>PSGroupCell</string>

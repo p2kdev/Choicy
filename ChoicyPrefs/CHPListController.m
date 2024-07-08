@@ -45,7 +45,7 @@
 	NSNumber *customTweakConfigurationEnabledNum = processPreferences[kChoicyProcessPrefsKeyCustomTweakConfigurationEnabled];
 	NSNumber *overwriteGlobalTweakConfigurationNum = processPreferences[kChoicyProcessPrefsKeyOverwriteGlobalTweakConfiguration];
 
-	if (tweakInjectionDisabledNum.boolValue) {
+	if (!processPreferences || tweakInjectionDisabledNum.boolValue) {
 		return localize(@"TWEAKS_DISABLED");
 	}
 	else if (customTweakConfigurationEnabledNum.boolValue) {
