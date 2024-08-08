@@ -103,7 +103,7 @@
 
 - (NSArray *)tweakListForExecutableAtPath:(NSString *)executablePath
 {
-	HBLogDebugWeak(@"tweakListForExecutableAtPath:%@", executablePath);
+	NSLog(@"tweakListForExecutableAtPath:%@", executablePath);
 	if (!executablePath) return nil;
 
 	NSString *bundleID = [NSBundle bundleWithPath:executablePath.stringByDeletingLastPathComponent].bundleIdentifier;
